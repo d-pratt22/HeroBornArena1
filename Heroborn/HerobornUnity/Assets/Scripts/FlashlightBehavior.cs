@@ -6,9 +6,9 @@ public class FlashlightBehavior : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if(collision.gameObject.name == "Player")
         {
-            Destroy(this.transform.parent.gameObject);
+            Destroy(this.transform.gameObject);
 
             Debug.Log("Flashlight collected!");
         }

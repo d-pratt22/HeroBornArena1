@@ -8,7 +8,7 @@ public class CompassBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Destroy(this.transform.parent.gameObject);
+            Destroy(this.transform.gameObject);
 
             Debug.Log("Compass Collected!");
         }

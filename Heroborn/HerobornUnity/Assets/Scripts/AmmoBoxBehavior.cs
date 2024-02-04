@@ -8,7 +8,7 @@ public class AmmoBoxBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Destroy(this.transform.parent.gameObject);
+            Destroy(this.transform.gameObject);
 
             Debug.Log("Ammo Collected!");
         }
