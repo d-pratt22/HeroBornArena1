@@ -35523,6 +35523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ef07b517321a848bf168c77f8b621b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1001 &2396343007852166832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35850,6 +35851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588ce899b56deb942945b1575c7c1b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   onscreenDelay: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

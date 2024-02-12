@@ -35,6 +35,17 @@ public class GameBehavior : MonoBehaviour
                 }
     }
 
+    private int _ammoCount = 10;
+
+    public int Ammo
+    {
+        get { return _ammoCount; }
+        set
+        {
+            _ammoCount = value;
+            Debug.LogFormat("Ammo: {0}", _ammoCount);
+        }
+    }
 
     private int _playerHP = 3;
 
@@ -48,11 +59,27 @@ public class GameBehavior : MonoBehaviour
         }
     }
 
+    private string _flashlightAcquired = "No";
+
+        public string FlashlightAcquired
+    {
+        get { return _flashlightAcquired; }
+        set
+        {
+            _flashlightAcquired = value;
+            Debug.LogFormat("Flashlight: {0}", _flashlightAcquired);
+        }
+    }
+
     void OnGUI ()
     {
         GUI.Box(new Rect(20, 20, 150, 25), "Player Health:" + _playerHP);
 
         GUI.Box(new Rect(20, 50, 150, 25), "Items Collected: " + _itemsCollected);
+
+        GUI.Box(new Rect(20, 80, 150, 25), "Current Ammo: " + _ammoCount);
+
+        GUI.Box(new Rect(20, 110, 150, 25), "Acquired Flashlight: " + _flashlightAcquired);
 
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height -50, 300, 50), labelText);
 

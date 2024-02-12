@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class FlashlightBehavior : MonoBehaviour
 {
+    public GameBehavior gameManager;
+
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+    }
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
@@ -11,6 +17,8 @@ public class FlashlightBehavior : MonoBehaviour
             Destroy(this.transform.gameObject);
 
             Debug.Log("Flashlight collected!");
+
+            gameManager.FlashlightAcquired = "Yes";
         }
     }
 }

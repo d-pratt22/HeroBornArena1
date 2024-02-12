@@ -11,6 +11,8 @@ public class CompassBehavior : MonoBehaviour
             Destroy(this.transform.gameObject);
 
             Debug.Log("Compass Collected!");
+
+
         }
     }
 }
