@@ -9222,6 +9222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f838cec149402f4ab7aeef81ff7b59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!95 &764183486
 Animator:
   serializedVersion: 5
