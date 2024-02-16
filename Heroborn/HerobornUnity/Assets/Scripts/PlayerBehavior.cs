@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
- 
+    private GameBehavior _gameManager;
+
     public float moveSpeed = 10f;
     public float rotateSpeed = 100f;
     public float jumpVelocity = 5f;
@@ -20,10 +21,13 @@ public class PlayerBehavior : MonoBehaviour
     private CapsuleCollider _col;
     void Start()
     {
-        //3
+        
         _rb = GetComponent<Rigidbody>();
 
         _col = GetComponent<CapsuleCollider>();
+
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+
     }
 
     void Update()
@@ -76,4 +80,14 @@ public class PlayerBehavior : MonoBehaviour
 
         
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        // 4
+        if (collision.gameObject.name == "Enemy")
+        {
+            // 5
+            _gameManager.HP -= 1;
+        }
+    }
+
 }
