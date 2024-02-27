@@ -19,6 +19,13 @@ public class PlayerBehavior : MonoBehaviour
     private float hInput;
     private Rigidbody _rb;
     private CapsuleCollider _col;
+
+
+    public delegate void JumpingEvent();
+  
+    public event JumpingEvent playerJump;
+
+
     void Start()
     {
         
@@ -78,7 +85,9 @@ public class PlayerBehavior : MonoBehaviour
 
         _rb.MoveRotation(_rb.rotation * angleRot);
 
-        
+        playerJump();
+
+
     }
     void OnCollisionEnter(Collision collision)
     {
