@@ -4,14 +4,18 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 using CustomExtensions;
+using UnityEngine.UI;
 
 public class GameBehavior : MonoBehaviour, IManager
 {
-
+  
+    public GameObject Flashlight;
+    public GameObject Panel;
     private string _state;
 
     public Stack<string> lootStack = new Stack<string>();
-    
+
+
     public string State
     {
         get { return _state; }
@@ -40,7 +44,9 @@ public class GameBehavior : MonoBehaviour, IManager
 
                 showWinScreen = true;
 
-                Time.timeScale = 0f;
+   
+
+                Panel.SetActive (true);
             }
             else
             {
@@ -85,15 +91,23 @@ public class GameBehavior : MonoBehaviour, IManager
         }
     }
 
-    private string _flashlightAcquired = "No";
+   /* void Update()
+    {
+        healthText.text = _playerHP.ToString("0");
+        ammoText.text = _ammoCount.ToString("Ammo: 0");
+    }  */
 
-        public string FlashlightAcquired
+    private bool _flashlightAcquired = false;
+
+        public bool FlashlightAcquired
     {
         get { return _flashlightAcquired; }
         set
         {
             _flashlightAcquired = value;
             Debug.LogFormat("Flashlight: {0}", _flashlightAcquired);
+
+            Flashlight.SetActive (true);
         }
     }
     public delegate void DebugDelegate(string newText);
@@ -160,7 +174,7 @@ public class GameBehavior : MonoBehaviour, IManager
 
     void OnGUI ()
     {
-        GUI.Box(new Rect(20, 20, 150, 25), "Player Health:" + _playerHP);
+       GUI.Box(new Rect(20, 20, 150, 25), "Player Health:" + _playerHP);
 
         GUI.Box(new Rect(20, 50, 150, 25), "Items Collected: " + _itemsCollected);
 
@@ -170,7 +184,7 @@ public class GameBehavior : MonoBehaviour, IManager
 
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height -50, 300, 50), labelText);
 
-        if (showWinScreen)
+       /* if (showWinScreen)
         {
             if (GUI.Button(new Rect(Screen.width/2 -100, Screen.height/2 - 50, 200, 100), "YOU WON!"))
             {
@@ -203,7 +217,7 @@ public class GameBehavior : MonoBehaviour, IManager
 
                 Utilities.RestartLevel(-1);
             }
-        }
+        } */
 
     }
 

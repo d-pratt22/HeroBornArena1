@@ -18,7 +18,7 @@ public class FlashlightBehavior : MonoBehaviour
 
             Debug.Log("Flashlight collected!");
 
-            gameManager.FlashlightAcquired = "Yes";
+            gameManager.FlashlightAcquired = true;
         }
     }
 }
