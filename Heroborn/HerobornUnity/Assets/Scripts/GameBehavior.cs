@@ -22,7 +22,7 @@ public class GameBehavior : MonoBehaviour, IManager
         set { _state = value; }
     }
 
-    public string labelText = "Collect all 4 items and win your freedom!";
+    public string labelText = "Collect the Artifact!";
     public int maxItems = 4;
 
     public bool showWinScreen = false;

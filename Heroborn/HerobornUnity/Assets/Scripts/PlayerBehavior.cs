@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class PlayerBehavior : MonoBehaviour
 {
     private GameBehavior _gameManager;
@@ -11,9 +11,11 @@ public class PlayerBehavior : MonoBehaviour
     public float jumpVelocity = 5f;
     public float distanceToGround = 0.1f;
     public LayerMask groundLayer;
-
+    public AudioSource _yell;
     public GameObject bullet;
     public float bulletSpeed = 110f;
+
+    public GameObject _loss;
 
     private float vInput;
     private float hInput;
@@ -96,6 +98,15 @@ public class PlayerBehavior : MonoBehaviour
         {
             // 5
             _gameManager.HP -= 1;
+
+            _yell.Play();
+
+            if (_gameManager.HP <= 0)
+            {
+                _loss.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
         }
     }
 

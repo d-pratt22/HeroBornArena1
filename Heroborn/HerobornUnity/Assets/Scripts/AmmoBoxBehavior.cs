@@ -6,6 +6,7 @@ using UnityEngine;
 public class AmmoBoxBehavior : MonoBehaviour
 {
     public GameBehavior gameManager;
+    [SerializeField] AudioSource _effect;
 
         void Start ()
     {
@@ -15,6 +16,8 @@ public class AmmoBoxBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
+            _effect.Play();
+
             Destroy(this.transform.gameObject);
 
             Debug.Log("Ammo Collected!");
